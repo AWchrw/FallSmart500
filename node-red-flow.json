@@ -1,0 +1,1003 @@
+[
+    {
+        "id": "da554c6f4d31a7b2",
+        "type": "tab",
+        "label": "Main",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6d8887023cd8d32e",
+        "type": "tab",
+        "label": "Testing Prototype",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a70e6672e1e7c71d",
+        "type": "mqtt-broker",
+        "name": "termux",
+        "broker": "192.168.1.40",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "2bc16e9fe8494af5",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "cf99c6ba8f1fd03f",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "00425fa15bbd9605",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "2bc16e9fe8494af5",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "cf99c6ba8f1fd03f",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 2,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "f8707bb0060b1bb8",
+        "type": "ui-group",
+        "name": "Group 1",
+        "page": "00425fa15bbd9605",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": true,
+        "disabled": false,
+        "groupType": "default"
+    },
+    {
+        "id": "e63dd9a8f49d8b47",
+        "type": "ui-page",
+        "name": "Main Page",
+        "ui": "2bc16e9fe8494af5",
+        "path": "/page2",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "cf99c6ba8f1fd03f",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "e80c04bc6eef18ba",
+        "type": "ui-group",
+        "name": "Main 2",
+        "page": "e63dd9a8f49d8b47",
+        "width": 6,
+        "height": 1,
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "d3be2df270e1cf27",
+        "type": "ui-group",
+        "name": "Main 1",
+        "page": "e63dd9a8f49d8b47",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "a1199872ad8b1c6d",
+        "type": "mqtt in",
+        "z": "da554c6f4d31a7b2",
+        "name": "",
+        "topic": "test/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "a70e6672e1e7c71d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 350,
+        "y": 180,
+        "wires": [
+            [
+                "d142658090196f90"
+            ]
+        ]
+    },
+    {
+        "id": "0a88b13418899ffe",
+        "type": "mqtt out",
+        "z": "da554c6f4d31a7b2",
+        "name": "",
+        "topic": "test/debug",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a70e6672e1e7c71d",
+        "x": 670,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "65b4c0150daf0a74",
+        "type": "inject",
+        "z": "da554c6f4d31a7b2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 360,
+        "y": 300,
+        "wires": [
+            [
+                "0a88b13418899ffe"
+            ]
+        ]
+    },
+    {
+        "id": "d142658090196f90",
+        "type": "debug",
+        "z": "da554c6f4d31a7b2",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "9d4468e42a29aa64",
+        "type": "mqtt in",
+        "z": "da554c6f4d31a7b2",
+        "name": "",
+        "topic": "+/fall",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "a70e6672e1e7c71d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 90,
+        "y": 600,
+        "wires": [
+            [
+                "3b5c74111376fdd1"
+            ]
+        ]
+    },
+    {
+        "id": "242da182be4fe3ab",
+        "type": "switch",
+        "z": "da554c6f4d31a7b2",
+        "name": "Map ClientId",
+        "property": "clientId",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "client01",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "client02",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 930,
+        "y": 600,
+        "wires": [
+            [
+                "60940784abf190f4",
+                "442d1669761403c4"
+            ],
+            [
+                "60940784abf190f4",
+                "b6a742a6baf23230"
+            ]
+        ]
+    },
+    {
+        "id": "60940784abf190f4",
+        "type": "debug",
+        "z": "da554c6f4d31a7b2",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1080,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "c42f35c485c5619e",
+        "type": "ui-text",
+        "z": "da554c6f4d31a7b2",
+        "group": "d3be2df270e1cf27",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Status",
+        "label": "Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 1310,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "13da5a8a1de1d708",
+        "type": "ui-text",
+        "z": "da554c6f4d31a7b2",
+        "group": "e80c04bc6eef18ba",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Status",
+        "label": "Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 1310,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "ec7394d7065f60ae",
+        "type": "function",
+        "z": "da554c6f4d31a7b2",
+        "name": "Map fall status",
+        "func": "msg.payload = msg.payload === 1 ? \"Falling\" : \"Safe\"\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\nnode.send({\n    payload: \"Safe\"\n});",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 600,
+        "wires": [
+            [
+                "bbce2240c86a70b0"
+            ]
+        ]
+    },
+    {
+        "id": "dfe78c85ea92e18a",
+        "type": "inject",
+        "z": "da554c6f4d31a7b2",
+        "name": "Mock fall",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "client01/fall",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 100,
+        "y": 480,
+        "wires": [
+            [
+                "3b5c74111376fdd1"
+            ]
+        ]
+    },
+    {
+        "id": "2fd2b601351b47ba",
+        "type": "inject",
+        "z": "da554c6f4d31a7b2",
+        "name": "Mock safe",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "client01/fall",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 100,
+        "y": 540,
+        "wires": [
+            [
+                "3b5c74111376fdd1"
+            ]
+        ]
+    },
+    {
+        "id": "50b3846cb72a152a",
+        "type": "mqtt out",
+        "z": "da554c6f4d31a7b2",
+        "name": "",
+        "topic": "master/fall",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a70e6672e1e7c71d",
+        "x": 890,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "bbce2240c86a70b0",
+        "type": "function",
+        "z": "da554c6f4d31a7b2",
+        "name": "Set name to msg",
+        "func": "const clients = {\n    \"client01\" : \"Elaina\",\n    \"client02\" : \"Phoebe\"\n}\n\nmsg.clientName =  clients[msg.clientId] ?? null;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 600,
+        "wires": [
+            [
+                "242da182be4fe3ab"
+            ]
+        ]
+    },
+    {
+        "id": "1bbd3aa2d605ca14",
+        "type": "ui-text",
+        "z": "da554c6f4d31a7b2",
+        "group": "d3be2df270e1cf27",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Name",
+        "label": "Name",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "clientName",
+        "valueType": "msg",
+        "x": 1310,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "87e5e838dff72fa3",
+        "type": "ui-text",
+        "z": "da554c6f4d31a7b2",
+        "group": "e80c04bc6eef18ba",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Name",
+        "label": "Name",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "clientName",
+        "valueType": "msg",
+        "x": 1310,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "442d1669761403c4",
+        "type": "function",
+        "z": "da554c6f4d31a7b2",
+        "name": "Client01",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1160,
+        "y": 500,
+        "wires": [
+            [
+                "1bbd3aa2d605ca14",
+                "c42f35c485c5619e"
+            ]
+        ]
+    },
+    {
+        "id": "b6a742a6baf23230",
+        "type": "function",
+        "z": "da554c6f4d31a7b2",
+        "name": "Client02",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1160,
+        "y": 700,
+        "wires": [
+            [
+                "87e5e838dff72fa3",
+                "13da5a8a1de1d708"
+            ]
+        ]
+    },
+    {
+        "id": "dbf483f7a78e3e09",
+        "type": "function",
+        "z": "da554c6f4d31a7b2",
+        "name": "Set data on start",
+        "func": "",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\nnode.send({\n    payload: 0,\n    clientId: \"client01\"\n});\n\nnode.send({\n    payload: 0,\n    clientId: \"client02\"\n});",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 440,
+        "wires": [
+            [
+                "ec7394d7065f60ae"
+            ]
+        ]
+    },
+    {
+        "id": "3b5c74111376fdd1",
+        "type": "function",
+        "z": "da554c6f4d31a7b2",
+        "name": "Set clientId to msg",
+        "func": "if (msg.topic) {\n    const clientId = msg.topic.split(\"/\")[0]; \n    msg.clientId = clientId \n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 600,
+        "wires": [
+            [
+                "ec7394d7065f60ae"
+            ]
+        ]
+    },
+    {
+        "id": "2a78fc2791cf9035",
+        "type": "mqtt in",
+        "z": "6d8887023cd8d32e",
+        "name": "",
+        "topic": "test/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "a70e6672e1e7c71d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 450,
+        "y": 400,
+        "wires": [
+            [
+                "646a478ae07110c4"
+            ]
+        ]
+    },
+    {
+        "id": "99192dd0451d35fb",
+        "type": "mqtt out",
+        "z": "6d8887023cd8d32e",
+        "name": "",
+        "topic": "test/debug",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a70e6672e1e7c71d",
+        "x": 770,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "dac819777c54542d",
+        "type": "inject",
+        "z": "6d8887023cd8d32e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 460,
+        "y": 520,
+        "wires": [
+            [
+                "99192dd0451d35fb"
+            ]
+        ]
+    },
+    {
+        "id": "646a478ae07110c4",
+        "type": "debug",
+        "z": "6d8887023cd8d32e",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "de0285e5eadcfc39",
+        "type": "function",
+        "z": "6d8887023cd8d32e",
+        "name": "Split payload",
+        "func": "let data = msg.payload.toString();   // convert Buffer → string\n\nlet parts = data.split(\",\");\n\nfor (let i = 0; i < parts.length; i++) {\n    node.send({\n        topic: \"accel\",\n        payload: Number(parts[i])\n    });\n}\n\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 780,
+        "wires": [
+            [
+                "8fc265d688b47242",
+                "456b11702d10f8f6"
+            ]
+        ]
+    },
+    {
+        "id": "8fc265d688b47242",
+        "type": "debug",
+        "z": "6d8887023cd8d32e",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "6dcbfaaaba4691a3",
+        "type": "inject",
+        "z": "6d8887023cd8d32e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1,2,23",
+        "payloadType": "str",
+        "x": 270,
+        "y": 720,
+        "wires": [
+            [
+                "de0285e5eadcfc39"
+            ]
+        ]
+    },
+    {
+        "id": "4b914f716681d540",
+        "type": "mqtt in",
+        "z": "6d8887023cd8d32e",
+        "name": "",
+        "topic": "test/acceleration",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "a70e6672e1e7c71d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 820,
+        "wires": [
+            [
+                "de0285e5eadcfc39"
+            ]
+        ]
+    },
+    {
+        "id": "ba23704479cef0fe",
+        "type": "ui-chart",
+        "z": "6d8887023cd8d32e",
+        "group": "f8707bb0060b1bb8",
+        "name": "",
+        "label": "Accelaration",
+        "order": 2,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": "4",
+        "className": "",
+        "interpolation": "linear",
+        "x": 950,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "456b11702d10f8f6",
+        "type": "delay",
+        "z": "6d8887023cd8d32e",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 700,
+        "y": 780,
+        "wires": [
+            [
+                "ba23704479cef0fe"
+            ]
+        ]
+    },
+    {
+        "id": "387294c0042e1a46",
+        "type": "ui-text",
+        "z": "6d8887023cd8d32e",
+        "group": "f8707bb0060b1bb8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Status",
+        "label": "Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 950,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "87fd2ad22dce9852",
+        "type": "function",
+        "z": "6d8887023cd8d32e",
+        "name": "Map fall status",
+        "func": "msg.payload = msg.payload === 1 ? \"Falling\" : \"Safe\"\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\nnode.send({\n    payload: \"Safe\"\n});",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 1020,
+        "wires": [
+            [
+                "387294c0042e1a46",
+                "fedc4d60656d97f7"
+            ]
+        ]
+    },
+    {
+        "id": "10fc701b71411cd7",
+        "type": "mqtt in",
+        "z": "6d8887023cd8d32e",
+        "name": "",
+        "topic": "test/fall",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "a70e6672e1e7c71d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 250,
+        "y": 1020,
+        "wires": [
+            [
+                "87fd2ad22dce9852"
+            ]
+        ]
+    },
+    {
+        "id": "fedc4d60656d97f7",
+        "type": "debug",
+        "z": "6d8887023cd8d32e",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "919a9e10b133b2ab",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@flowfuse/node-red-dashboard": "1.30.2"
+        }
+    }
+]
