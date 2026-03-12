@@ -2,9 +2,12 @@
 #include <MqttClient.h>
 #include <cmath>
 
-#define BUZZER 41
-#define FALL_THRESHOLD 0.3
-#define ACCEL_BUFFER_SIZE 5
+#define BUZZER 5
+#define SW_PIN 2
+#define FALL_THRESHOLD 300
+#define ACCEL_BUFFER_SIZE 10
+
+int fallThreshold = 300;
 
 // MPU
 MPU mpu;
@@ -13,20 +16,24 @@ float prevAccel, prevRotation;
 // Buzzer
 bool buzzerActive = false;
 unsigned long buzzerStartTime = 0;
-const unsigned long buzzerDuration = 300;
+const unsigned long buzzerDuration = 500;
 
 // MQTT
 MqttClient client;
-uint32_t last_publish;
+uint32_t last_publish;  
 float accelBuffer[ACCEL_BUFFER_SIZE];
 int counter;
 
-bool sendAccel = false;
+bool sendAccel = true;
 
 void triggerBuzzer() {
-  digitalWrite(BUZZER, HIGH);
+  digitalWrite(BUZZER, LOW);
   buzzerStartTime = millis();
   buzzerActive = true;
+}
+
+void onFallThresholdChanged(const char *message){
+  fallThreshold = atoi(message);
 }
 
 void setup() {
@@ -36,11 +43,14 @@ void setup() {
   client.connectWifi();
   client.connectMqtt(); 
 
+  client.onTopic(TOPIC_FALL_THRESHOLD, onFallThresholdChanged);
+
   // MPU Setup
   mpu.init();
 
   // Buzzer
   pinMode(BUZZER, OUTPUT);
+  digitalWrite(BUZZER, HIGH);
 }
 
 void loop() {
@@ -52,7 +62,7 @@ void loop() {
   // Mpu
   Vector3 accel = mpu.readAccelerometer();
   Vector3 rotation = mpu.readRotation();
-  bool isFalling = ( fabs(accel.magnitude - prevAccel) / prevAccel ) >= FALL_THRESHOLD;
+  bool isFalling = ( accel.magnitude >= FALL_THRESHOLD);
 
   Serial.printf("ACC %d %d %d %.2f  RT %d %d %d %.2f isFalling %d\n",
     accel.x, accel.y, accel.z, accel.magnitude,
@@ -67,9 +77,11 @@ void loop() {
     }
   }
 
+  bool isPressed = (digitalRead(SW_PIN) == LOW);
+
   // Turn off buzzer  
-  if (buzzerActive && millis() - buzzerStartTime >= buzzerDuration) {
-    digitalWrite(BUZZER, LOW);
+  if (buzzerActive && ( (millis() - buzzerStartTime >= buzzerDuration) || isPressed) ) {
+    digitalWrite(BUZZER, HIGH);
     buzzerActive = false;
 
     // It should send falling = false
@@ -108,5 +120,5 @@ void loop() {
     }
   }
   
-  delay(1000);
+  delay(200);
 }

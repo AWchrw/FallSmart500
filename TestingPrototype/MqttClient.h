@@ -4,6 +4,8 @@
 #include <WiFi.h>
 #include <PubSubClient.h>
 #include <config.h>
+#include <map>
+#include <functional>
 
 #define TOPIC_PREFIX "test"
 
@@ -14,14 +16,15 @@
 
 // SUB
 #define TOPIC_DEBUG TOPIC_PREFIX "/debug"
+#define TOPIC_FALL_THRESHOLD TOPIC_PREFIX "fall_threshold"
 
 class MqttClient {
   private:
     WiFiClient wifiClient;
     PubSubClient mqtt;
+    std::map<String, std::function<void(const char*)>> topicHandlers;
     
     void onConnected();
-    void onDebugTopic(const char *payload);
     void mqttCallback(char* topic, byte* payload, unsigned int length);
   public:
     bool wifiConnected;
@@ -32,6 +35,7 @@ class MqttClient {
     void connectWifi();
     void connectMqtt();
     void mqttPublish(const char *topic, const char *payload);
+    void onTopic(const char *topic, std::function<void(const char*)> handler);
     void mqttLoop();
 };
 

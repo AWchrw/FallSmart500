@@ -16,7 +16,9 @@ void MqttClient::mqttCallback(char* topic, byte* payload, unsigned int length) {
   char message[length + 1];
   memcpy(message, payload, length);
   message[length] = '\0'; 
-  
+
+  Serial.printf("Received TOPIC: %s with msg %s\n", topic, message);
+
   String topicStr(topic);
 
   auto it = topicHandlers.find(topicStr);
@@ -77,14 +79,3 @@ void MqttClient::onTopic(const char* topic, std::function<void(const char*)> han
 void MqttClient::mqttLoop() {
   mqtt.loop();
 }
-
-
-
-
-
-
-
-
-
-
-

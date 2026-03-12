@@ -3,22 +3,15 @@
 
 #include <WiFi.h>
 #include <PubSubClient.h>
+#include <config.h>
 #include <map>
 #include <functional>
 
-// -- [Config] --
-#define WIFI_SSID "NavigatorNew_2.4G"
-#define WIFI_PASS "0811785733"
-
-#define MQTT_BROKER "192.168.1.40"
-// ----
-
-#define TOPIC_PREFIX "client01"
+#define TOPIC_PREFIX "master"
 
 // PUB
 #define TOPIC_ACCELERATION TOPIC_PREFIX "/acceleration"
 #define TOPIC_CONNECTION TOPIC_PREFIX "/connection"
-#define TOPIC_FALL TOPIC_PREFIX "/fall"
 
 // SUB
 #define TOPIC_DEBUG TOPIC_PREFIX "/debug"

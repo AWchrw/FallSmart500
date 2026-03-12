@@ -3,7 +3,7 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
-#define BUZZER 41
+#define BUZZER 5
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
@@ -15,16 +15,15 @@ const unsigned long buzzerDuration = 10 * 1000;
 
 // MQTT
 MqttClient client;
-uint32_t last_publish;
 
 // ===== BUZZER =====
 void triggerBuzzer() {
-  digitalWrite(BUZZER, HIGH);
+  digitalWrite(BUZZER, LOW);
   buzzerStartTime = millis();
   buzzerActive = true;
 }
 void turnOffBuzzer() {
-  digitalWrite(BUZZER, LOW);
+  digitalWrite(BUZZER, HIGH);
   buzzerActive = false;
 }
 
@@ -85,6 +84,7 @@ void setup() {
 
   // Buzzer
   pinMode(BUZZER, OUTPUT);
+  digitalWrite(BUZZER, HIGH);
 }
 
 void loop() {

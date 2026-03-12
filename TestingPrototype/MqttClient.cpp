@@ -13,12 +13,18 @@ void MqttClient::onConnected() {
 }
 
 void MqttClient::mqttCallback(char* topic, byte* payload, unsigned int length) {
-  payload[length] = 0;
-  if(strcmp(topic, TOPIC_DEBUG) == 0) onDebugTopic((char*)payload); 
-}
+  char message[length + 1];
+  memcpy(message, payload, length);
+  message[length] = '\0'; 
 
-void MqttClient::onDebugTopic(const char *payload) {
-  Serial.printf("%s\n", payload);
+  Serial.printf("Received TOPIC: %s with msg %s\n", topic, message);
+
+  String topicStr(topic);
+
+  auto it = topicHandlers.find(topicStr);
+  if (it != topicHandlers.end()) {
+    it -> second(message);
+  }
 }
 
 void MqttClient::connectWifi() {
@@ -42,13 +48,20 @@ void MqttClient::connectMqtt() {
     Serial.println("Failed to connect to MQTT broker.");
     return;
   }
+
   mqtt.setCallback([this](char* topic, byte* payload, unsigned int length) {
     this->mqttCallback(topic, payload, length);
   });
-  mqtt.subscribe(TOPIC_DEBUG);
   
   Serial.println("MQTT broker connected.");
   mqttConnected = true;
+
+  if (!topicHandlers.empty()) {
+    for (auto &pair : topicHandlers) {
+      mqtt.subscribe(pair.first.c_str());
+    }
+  }
+
   onConnected();
 }
 
@@ -58,17 +71,11 @@ void MqttClient::mqttPublish(const char *topic, const char *payload) {
   if (!res) Serial.println("Failed to sent!");
 }
 
+void MqttClient::onTopic(const char* topic, std::function<void(const char*)> handler) {
+  topicHandlers[String(topic)] = handler;
+  mqtt.subscribe(topic);
+}
+
 void MqttClient::mqttLoop() {
   mqtt.loop();
 }
-
-
-
-
-
-
-
-
-
-
-
