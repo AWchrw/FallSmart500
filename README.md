@@ -76,6 +76,11 @@ FallSmart500
 └── images/ // ไฟล์รูปภาพที่เกี่ยวข้อง
 ```
 
+## Node Red Flow
+
+- **Main** สำหรับการทำงานหลัก
+- **Testing Prototype** สำหรับทดสอบระบบ
+
 ## Library
 
 ทั้งหมดนี้เป็น Library ที่ถูกใช้ใน [Arduino IDE](https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE)
